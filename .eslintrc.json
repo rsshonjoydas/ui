@@ -40,6 +40,10 @@
     "jsx-a11y/no-noninteractive-element-interactions": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
     "no-nested-ternary": "off",
+    "react/require-default-props": "off",
+    "no-shadow": "off",
+    "react/no-array-index-key": "off",
+    "no-param-reassign": "off",
     "no-unused-vars": "error"
   }
 }
