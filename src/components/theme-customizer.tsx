@@ -32,7 +32,6 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/registry/new-york/ui/
 import { Skeleton } from '@/registry/new-york/ui/skeleton';
 import { Theme, themes } from '@/registry/themes';
 
-import '@/styles/mdx.css';
 import { Drawer } from 'vaul';
 
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/registry/new-york/ui/tooltip';
@@ -49,7 +48,7 @@ function Customizer() {
   return (
     <ThemeWrapper defaultTheme='zinc' className='flex flex-col space-y-4 md:space-y-6'>
       <div className='flex items-start'>
-        <div className='space-y-1 pr-2'>
+        <div className='pr-2 space-y-1'>
           <div className='font-semibold leading-none tracking-tight'>Customize</div>
           <div className='text-xs text-muted-foreground'>
             Pick a style and color for your components.
@@ -71,13 +70,13 @@ function Customizer() {
           <span className='sr-only'>Reset</span>
         </Button>
       </div>
-      <div className='flex flex-1 flex-col space-y-4 md:space-y-6'>
+      <div className='flex flex-col flex-1 space-y-4 md:space-y-6'>
         <div className='space-y-1.5'>
-          <div className='flex w-full items-center'>
+          <div className='flex items-center w-full'>
             <Label className='text-xs'>Style</Label>
             <Popover>
               <PopoverTrigger>
-                <InfoCircledIcon className='ml-1 h-3 w-3' />
+                <InfoCircledIcon className='w-3 h-3 ml-1' />
                 <span className='sr-only'>About styles</span>
               </PopoverTrigger>
               <PopoverContent
@@ -151,12 +150,12 @@ function Customizer() {
                       'mr-1 flex h-5 w-5 shrink-0 -translate-x-1 items-center justify-center rounded-full bg-[--theme-primary]'
                     )}
                   >
-                    {isActive && <CheckIcon className='h-4 w-4 text-white' />}
+                    {isActive && <CheckIcon className='w-4 h-4 text-white' />}
                   </span>
                   {theme.label}
                 </Button>
               ) : (
-                <Skeleton className='h-8 w-full' key={theme.name} />
+                <Skeleton className='w-full h-8' key={theme.name} />
               );
             })}
           </div>
@@ -208,8 +207,8 @@ function Customizer() {
               </>
             ) : (
               <>
-                <Skeleton className='h-8 w-full' />
-                <Skeleton className='h-8 w-full' />
+                <Skeleton className='w-full h-8' />
+                <Skeleton className='w-full h-8' />
               </>
             )}
           </div>
@@ -228,22 +227,22 @@ function CustomizerCode() {
       <div data-rehype-pretty-code-fragment=''>
         <pre className='max-h-[450px] overflow-x-auto rounded-lg border bg-zinc-950 py-4 dark:bg-zinc-900'>
           <code className='relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm'>
-            <span className='line text-white'>@layer base &#123;</span>
-            <span className='line text-white'>&nbsp;&nbsp;:root &#123;</span>
-            <span className='line text-white'>
+            <span className='text-white line'>@layer base &#123;</span>
+            <span className='text-white line'>&nbsp;&nbsp;:root &#123;</span>
+            <span className='text-white line'>
               &nbsp;&nbsp;&nbsp;&nbsp;--background: {activeTheme?.cssVars.light.background};
             </span>
-            <span className='line text-white'>
+            <span className='text-white line'>
               &nbsp;&nbsp;&nbsp;&nbsp;--foreground: {activeTheme?.cssVars.light.foreground};
             </span>
             {['card', 'popover', 'primary', 'secondary', 'muted', 'accent', 'destructive'].map(
               (prefix) => (
                 <>
-                  <span className='line text-white'>
+                  <span className='text-white line'>
                     &nbsp;&nbsp;&nbsp;&nbsp;--{prefix}:{' '}
                     {activeTheme?.cssVars.light[prefix as keyof typeof activeTheme.cssVars.light]};
                   </span>
-                  <span className='line text-white'>
+                  <span className='text-white line'>
                     &nbsp;&nbsp;&nbsp;&nbsp;--{prefix}-foreground:{' '}
                     {
                       activeTheme?.cssVars.light[
@@ -255,35 +254,35 @@ function CustomizerCode() {
                 </>
               )
             )}
-            <span className='line text-white'>
+            <span className='text-white line'>
               &nbsp;&nbsp;&nbsp;&nbsp;--border: {activeTheme?.cssVars.light.border};
             </span>
-            <span className='line text-white'>
+            <span className='text-white line'>
               &nbsp;&nbsp;&nbsp;&nbsp;--input: {activeTheme?.cssVars.light.input};
             </span>
-            <span className='line text-white'>
+            <span className='text-white line'>
               &nbsp;&nbsp;&nbsp;&nbsp;--ring: {activeTheme?.cssVars.light.ring};
             </span>
-            <span className='line text-white'>
+            <span className='text-white line'>
               &nbsp;&nbsp;&nbsp;&nbsp;--radius: {config.radius}rem;
             </span>
-            <span className='line text-white'>&nbsp;&nbsp;&#125;</span>
-            <span className='line text-white'>&nbsp;</span>
-            <span className='line text-white'>&nbsp;&nbsp;.dark &#123;</span>
-            <span className='line text-white'>
+            <span className='text-white line'>&nbsp;&nbsp;&#125;</span>
+            <span className='text-white line'>&nbsp;</span>
+            <span className='text-white line'>&nbsp;&nbsp;.dark &#123;</span>
+            <span className='text-white line'>
               &nbsp;&nbsp;&nbsp;&nbsp;--background: {activeTheme?.cssVars.dark.background};
             </span>
-            <span className='line text-white'>
+            <span className='text-white line'>
               &nbsp;&nbsp;&nbsp;&nbsp;--foreground: {activeTheme?.cssVars.dark.foreground};
             </span>
             {['card', 'popover', 'primary', 'secondary', 'muted', 'accent', 'destructive'].map(
               (prefix) => (
                 <>
-                  <span className='line text-white'>
+                  <span className='text-white line'>
                     &nbsp;&nbsp;&nbsp;&nbsp;--{prefix}:{' '}
                     {activeTheme?.cssVars.dark[prefix as keyof typeof activeTheme.cssVars.dark]};
                   </span>
-                  <span className='line text-white'>
+                  <span className='text-white line'>
                     &nbsp;&nbsp;&nbsp;&nbsp;--{prefix}-foreground:{' '}
                     {
                       activeTheme?.cssVars.dark[
@@ -295,17 +294,17 @@ function CustomizerCode() {
                 </>
               )
             )}
-            <span className='line text-white'>
+            <span className='text-white line'>
               &nbsp;&nbsp;&nbsp;&nbsp;--border: {activeTheme?.cssVars.dark.border};
             </span>
-            <span className='line text-white'>
+            <span className='text-white line'>
               &nbsp;&nbsp;&nbsp;&nbsp;--input: {activeTheme?.cssVars.dark.input};
             </span>
-            <span className='line text-white'>
+            <span className='text-white line'>
               &nbsp;&nbsp;&nbsp;&nbsp;--ring: {activeTheme?.cssVars.dark.ring};
             </span>
-            <span className='line text-white'>&nbsp;&nbsp;&#125;</span>
-            <span className='line text-white'>&#125;</span>
+            <span className='text-white line'>&nbsp;&nbsp;&#125;</span>
+            <span className='text-white line'>&#125;</span>
           </code>
         </pre>
       </div>
@@ -401,16 +400,16 @@ function CopyCodeButton() {
           className='md:hidden'
         >
           {hasCopied ? (
-            <CheckIcon className='mr-2 h-4 w-4' />
+            <CheckIcon className='w-4 h-4 mr-2' />
           ) : (
-            <CopyIcon className='mr-2 h-4 w-4' />
+            <CopyIcon className='w-4 h-4 mr-2' />
           )}
           Copy
         </Button>
       )}
       <Dialog>
         <DialogTrigger asChild>
-          <Button className='hidden md:flex'>Copy code</Button>
+          <Button className='hidden md:flex'>Copy&nbsp;code</Button>
         </DialogTrigger>
         <DialogContent className='max-w-2xl outline-none'>
           <DialogHeader>
@@ -437,9 +436,9 @@ function CopyCodeButton() {
                 className='absolute right-4 top-4 bg-muted text-muted-foreground hover:bg-muted hover:text-muted-foreground'
               >
                 {hasCopied ? (
-                  <CheckIcon className='mr-2 h-4 w-4' />
+                  <CheckIcon className='w-4 h-4 mr-2' />
                 ) : (
-                  <CopyIcon className='mr-2 h-4 w-4' />
+                  <CopyIcon className='w-4 h-4 mr-2' />
                 )}
                 Copy
               </Button>
@@ -465,7 +464,7 @@ export function ThemeCustomizer() {
       <Drawer.Root>
         <DrawerTrigger asChild>
           <Button variant='outline' className='md:hidden'>
-            <Paintbrush className='mr-2 h-4 w-4' />
+            <Paintbrush className='w-4 h-4 mr-2' />
             Customize
           </Button>
         </DrawerTrigger>
@@ -513,7 +512,7 @@ export function ThemeCustomizer() {
                             'flex h-6 w-6 items-center justify-center rounded-full bg-[--theme-primary]'
                           )}
                         >
-                          {isActive && <CheckIcon className='h-4 w-4 text-white' />}
+                          {isActive && <CheckIcon className='w-4 h-4 text-white' />}
                         </span>
                         <span className='sr-only'>{theme.label}</span>
                       </button>
@@ -529,19 +528,19 @@ export function ThemeCustomizer() {
               })}
             </>
           ) : (
-            <div className='mr-1 flex items-center space-x-3'>
-              <Skeleton className='h-6 w-6 rounded-full' />
-              <Skeleton className='h-6 w-6 rounded-full' />
-              <Skeleton className='h-6 w-6 rounded-full' />
-              <Skeleton className='h-6 w-6 rounded-full' />
-              <Skeleton className='h-6 w-6 rounded-full' />
+            <div className='flex items-center mr-1 space-x-3'>
+              <Skeleton className='w-6 h-6 rounded-full' />
+              <Skeleton className='w-6 h-6 rounded-full' />
+              <Skeleton className='w-6 h-6 rounded-full' />
+              <Skeleton className='w-6 h-6 rounded-full' />
+              <Skeleton className='w-6 h-6 rounded-full' />
             </div>
           )}
         </div>
         <Popover>
           <PopoverTrigger asChild>
             <Button variant='outline'>
-              <Paintbrush className='mr-2 h-4 w-4' />
+              <Paintbrush className='w-4 h-4 mr-2' />
               Customize
             </Button>
           </PopoverTrigger>
