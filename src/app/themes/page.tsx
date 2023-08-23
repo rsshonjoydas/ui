@@ -4,7 +4,6 @@ import { ThemesTabs } from '@/app/themes/tabs';
 import { PageHeader, PageHeaderDescription, PageHeaderHeading } from '@/components/page-header';
 import { ThemeCustomizer } from '@/components/theme-customizer';
 import { ThemeWrapper } from '@/components/theme-wrapper';
-import 'public/registry/themes.css';
 
 export const metadata: Metadata = {
   title: 'Themes',

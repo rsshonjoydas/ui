@@ -14,10 +14,20 @@ const nextConfig = {
       'firebasestorage.googleapis.com',
       'graph.facebook.com',
       'image.tmdb.org',
+      'images.unsplash.com',
     ],
   },
   sassOptions: {
     includePaths: [path.join(__dirname, 'src/styles')],
+  },
+  redirects() {
+    return [
+      {
+        source: '/examples',
+        destination: '/examples/dashboard',
+        permanent: false,
+      },
+    ];
   },
 };
 
