@@ -11,9 +11,9 @@ export function MainNav() {
   const pathname = usePathname();
 
   return (
-    <div className='mr-4 hidden md:flex'>
-      <Link href='/' className='mr-6 flex items-center space-x-2'>
-        <Icons.Logo className='h-6 w-6' />
+    <div className='hidden mr-4 md:flex'>
+      <Link href='/' className='flex items-center mr-6 space-x-2'>
+        <Icons.Logo className='w-6 h-6' />
         <span className='hidden font-bold sm:inline-block'>{siteConfig.name}</span>
       </Link>
       <nav className='flex items-center space-x-6 text-sm font-medium'>
@@ -27,10 +27,10 @@ export function MainNav() {
           Documentation
         </Link>
         <Link
-          href='/docs/components'
+          href='/components'
           className={cn(
             'transition-colors hover:text-foreground/80',
-            pathname?.startsWith('/docs/components') ? 'text-foreground' : 'text-foreground/60'
+            pathname?.startsWith('/components') ? 'text-foreground' : 'text-foreground/60'
           )}
         >
           Components
