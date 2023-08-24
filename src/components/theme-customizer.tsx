@@ -34,6 +34,7 @@ import { Theme, themes } from '@/registry/themes';
 
 import { Drawer } from 'vaul';
 
+import { ScrollArea } from '@/registry/default/ui/scroll-area';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/registry/new-york/ui/tooltip';
 
 function Customizer() {
@@ -225,88 +226,91 @@ function CustomizerCode() {
   return (
     <ThemeWrapper defaultTheme='zinc' className='relative space-y-4'>
       <div data-rehype-pretty-code-fragment=''>
-        <pre className='max-h-[450px] overflow-x-auto rounded-lg border bg-zinc-950 py-4 dark:bg-zinc-900'>
-          <code className='relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm'>
-            <span className='text-white line'>@layer base &#123;</span>
-            <span className='text-white line'>&nbsp;&nbsp;:root &#123;</span>
-            <span className='text-white line'>
-              &nbsp;&nbsp;&nbsp;&nbsp;--background: {activeTheme?.cssVars.light.background};
-            </span>
-            <span className='text-white line'>
-              &nbsp;&nbsp;&nbsp;&nbsp;--foreground: {activeTheme?.cssVars.light.foreground};
-            </span>
-            {['card', 'popover', 'primary', 'secondary', 'muted', 'accent', 'destructive'].map(
-              (prefix) => (
-                <>
-                  <span className='text-white line'>
-                    &nbsp;&nbsp;&nbsp;&nbsp;--{prefix}:{' '}
-                    {activeTheme?.cssVars.light[prefix as keyof typeof activeTheme.cssVars.light]};
-                  </span>
-                  <span className='text-white line'>
-                    &nbsp;&nbsp;&nbsp;&nbsp;--{prefix}-foreground:{' '}
-                    {
-                      activeTheme?.cssVars.light[
-                        `${prefix}-foreground` as keyof typeof activeTheme.cssVars.light
-                      ]
-                    }
-                    ;
-                  </span>
-                </>
-              )
-            )}
-            <span className='text-white line'>
-              &nbsp;&nbsp;&nbsp;&nbsp;--border: {activeTheme?.cssVars.light.border};
-            </span>
-            <span className='text-white line'>
-              &nbsp;&nbsp;&nbsp;&nbsp;--input: {activeTheme?.cssVars.light.input};
-            </span>
-            <span className='text-white line'>
-              &nbsp;&nbsp;&nbsp;&nbsp;--ring: {activeTheme?.cssVars.light.ring};
-            </span>
-            <span className='text-white line'>
-              &nbsp;&nbsp;&nbsp;&nbsp;--radius: {config.radius}rem;
-            </span>
-            <span className='text-white line'>&nbsp;&nbsp;&#125;</span>
-            <span className='text-white line'>&nbsp;</span>
-            <span className='text-white line'>&nbsp;&nbsp;.dark &#123;</span>
-            <span className='text-white line'>
-              &nbsp;&nbsp;&nbsp;&nbsp;--background: {activeTheme?.cssVars.dark.background};
-            </span>
-            <span className='text-white line'>
-              &nbsp;&nbsp;&nbsp;&nbsp;--foreground: {activeTheme?.cssVars.dark.foreground};
-            </span>
-            {['card', 'popover', 'primary', 'secondary', 'muted', 'accent', 'destructive'].map(
-              (prefix) => (
-                <>
-                  <span className='text-white line'>
-                    &nbsp;&nbsp;&nbsp;&nbsp;--{prefix}:{' '}
-                    {activeTheme?.cssVars.dark[prefix as keyof typeof activeTheme.cssVars.dark]};
-                  </span>
-                  <span className='text-white line'>
-                    &nbsp;&nbsp;&nbsp;&nbsp;--{prefix}-foreground:{' '}
-                    {
-                      activeTheme?.cssVars.dark[
-                        `${prefix}-foreground` as keyof typeof activeTheme.cssVars.dark
-                      ]
-                    }
-                    ;
-                  </span>
-                </>
-              )
-            )}
-            <span className='text-white line'>
-              &nbsp;&nbsp;&nbsp;&nbsp;--border: {activeTheme?.cssVars.dark.border};
-            </span>
-            <span className='text-white line'>
-              &nbsp;&nbsp;&nbsp;&nbsp;--input: {activeTheme?.cssVars.dark.input};
-            </span>
-            <span className='text-white line'>
-              &nbsp;&nbsp;&nbsp;&nbsp;--ring: {activeTheme?.cssVars.dark.ring};
-            </span>
-            <span className='text-white line'>&nbsp;&nbsp;&#125;</span>
-            <span className='text-white line'>&#125;</span>
-          </code>
-        </pre>
+        <ScrollArea className='bg-zinc-950 dark:bg-zinc-900'>
+          <pre className='max-h-[450px] py-4 border rounded-lg'>
+            <code className='relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm'>
+              <span className='text-white line'>@layer base &#123;</span>
+              <span className='text-white line'>&nbsp;&nbsp;:root &#123;</span>
+              <span className='text-white line'>
+                &nbsp;&nbsp;&nbsp;&nbsp;--background: {activeTheme?.cssVars.light.background};
+              </span>
+              <span className='text-white line'>
+                &nbsp;&nbsp;&nbsp;&nbsp;--foreground: {activeTheme?.cssVars.light.foreground};
+              </span>
+              {['card', 'popover', 'primary', 'secondary', 'muted', 'accent', 'destructive'].map(
+                (prefix) => (
+                  <>
+                    <span className='text-white line'>
+                      &nbsp;&nbsp;&nbsp;&nbsp;--{prefix}:{' '}
+                      {activeTheme?.cssVars.light[prefix as keyof typeof activeTheme.cssVars.light]}
+                      ;
+                    </span>
+                    <span className='text-white line'>
+                      &nbsp;&nbsp;&nbsp;&nbsp;--{prefix}-foreground:{' '}
+                      {
+                        activeTheme?.cssVars.light[
+                          `${prefix}-foreground` as keyof typeof activeTheme.cssVars.light
+                        ]
+                      }
+                      ;
+                    </span>
+                  </>
+                )
+              )}
+              <span className='text-white line'>
+                &nbsp;&nbsp;&nbsp;&nbsp;--border: {activeTheme?.cssVars.light.border};
+              </span>
+              <span className='text-white line'>
+                &nbsp;&nbsp;&nbsp;&nbsp;--input: {activeTheme?.cssVars.light.input};
+              </span>
+              <span className='text-white line'>
+                &nbsp;&nbsp;&nbsp;&nbsp;--ring: {activeTheme?.cssVars.light.ring};
+              </span>
+              <span className='text-white line'>
+                &nbsp;&nbsp;&nbsp;&nbsp;--radius: {config.radius}rem;
+              </span>
+              <span className='text-white line'>&nbsp;&nbsp;&#125;</span>
+              <span className='text-white line'>&nbsp;</span>
+              <span className='text-white line'>&nbsp;&nbsp;.dark &#123;</span>
+              <span className='text-white line'>
+                &nbsp;&nbsp;&nbsp;&nbsp;--background: {activeTheme?.cssVars.dark.background};
+              </span>
+              <span className='text-white line'>
+                &nbsp;&nbsp;&nbsp;&nbsp;--foreground: {activeTheme?.cssVars.dark.foreground};
+              </span>
+              {['card', 'popover', 'primary', 'secondary', 'muted', 'accent', 'destructive'].map(
+                (prefix) => (
+                  <>
+                    <span className='text-white line'>
+                      &nbsp;&nbsp;&nbsp;&nbsp;--{prefix}:{' '}
+                      {activeTheme?.cssVars.dark[prefix as keyof typeof activeTheme.cssVars.dark]};
+                    </span>
+                    <span className='text-white line'>
+                      &nbsp;&nbsp;&nbsp;&nbsp;--{prefix}-foreground:{' '}
+                      {
+                        activeTheme?.cssVars.dark[
+                          `${prefix}-foreground` as keyof typeof activeTheme.cssVars.dark
+                        ]
+                      }
+                      ;
+                    </span>
+                  </>
+                )
+              )}
+              <span className='text-white line'>
+                &nbsp;&nbsp;&nbsp;&nbsp;--border: {activeTheme?.cssVars.dark.border};
+              </span>
+              <span className='text-white line'>
+                &nbsp;&nbsp;&nbsp;&nbsp;--input: {activeTheme?.cssVars.dark.input};
+              </span>
+              <span className='text-white line'>
+                &nbsp;&nbsp;&nbsp;&nbsp;--ring: {activeTheme?.cssVars.dark.ring};
+              </span>
+              <span className='text-white line'>&nbsp;&nbsp;&#125;</span>
+              <span className='text-white line'>&#125;</span>
+            </code>
+          </pre>
+        </ScrollArea>
       </div>
     </ThemeWrapper>
   );
