@@ -88,7 +88,7 @@ export default function NavigationMenuDemo() {
                     href='/'
                   >
                     <Icons.Logo className='w-6 h-6' />
-                    <div className='mt-4 mb-2 text-lg font-medium'>shadcn/ui</div>
+                    <div className='mt-4 mb-2 text-lg font-medium'>rsshonjoydas/ui</div>
                     <p className='text-sm leading-tight text-muted-foreground'>
                       Beautifully designed components built with Radix UI and Tailwind CSS.
                     </p>

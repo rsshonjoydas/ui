@@ -3,7 +3,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/registry/default/ui/avata
 export default function AvatarDemo() {
   return (
     <Avatar>
-      <AvatarImage src='https://github.com/shadcn.png' alt='@shadcn' />
+      <AvatarImage src='https://github.com/rsshonjoydas.png' alt='@rsshonjoydas' />
       <AvatarFallback>CN</AvatarFallback>
     </Avatar>
   );
